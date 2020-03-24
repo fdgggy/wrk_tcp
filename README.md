@@ -2,13 +2,12 @@
 基于wrk二次开发的tcp压测工具，测试脚本为Lua
 
 ## 编译
-只支持macos,linux
-make macosx / make linxu
+mac平台make macosx, Linux平台make linux
 
 ## 基本用法
 项目根目录config.lua文件配置相关信息
 
-```c
+```
 local config = {
     connections = 1,  --连接数
     duration = 5,     --压测持续时间
@@ -36,7 +35,7 @@ local config = {
 客户端运行wrk_tcp的机器必须有足够数量的临时端口和可重用且能快速回收time-wait状态的scoket，具体参考如下：
 
 在/etc/sysctl.conf加入以下内容
-```c
+```
 # 系统级别最大打开文件
 fs.file-max = 100000
 
@@ -61,7 +60,7 @@ net.ipv4.ip_local_port_range = 1024 65535
 ```
 
 在/etc/security/limits.conf加入以下内容
-```c
+```
 # 最大不能超过fs.nr_open值, 分别为单用户进程最大文件打开数，soft指软性限制,hard指硬性限制
 * soft nofile 100000
 * hard nofile 100000
@@ -74,7 +73,7 @@ backlog为listen时传入，后者为可配置，具体配置如下：
 
 在/etc/sysctl.conf加入以下内容
 
-```c
+```
 # 系统最大文件打开数
 fs.file-max = 20000000
 
@@ -126,7 +125,7 @@ net.ipv4.tcp_wmem = 4096 4096 4206592
 ```
 
 在/etc/security/limits.conf加入一下内容
-```c
+```
 # End of file
 root      soft    nofile          2100000
 root      hard    nofile          2100000
