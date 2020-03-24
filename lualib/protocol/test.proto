@@ -1,0 +1,14 @@
+login 21 {
+    request {
+		token 0 : string
+		app_ver 1 : string
+		hotfix_ver 2 : integer
+		userid 3 : integer
+	}
+
+	response {
+		code 0 : integer
+	}
+}
+
+
