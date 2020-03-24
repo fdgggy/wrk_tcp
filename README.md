@@ -1,6 +1,10 @@
 # wrk_tcp
 基于wrk二次开发的tcp压测工具，测试脚本为Lua
 
+## 编译
+只支持macos,linux
+make macosx / make linxu
+
 ## 基本用法
 项目根目录config.lua文件配置相关信息
 
@@ -14,6 +18,8 @@ local config = {
     port = 17793,
     url = "http://127.0.0.1:17788",
 }
+具体交互测试逻辑请看game文件夹示例
+
 ```
 输出:
 
